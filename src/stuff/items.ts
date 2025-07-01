@@ -164,7 +164,7 @@ export const ItemsSections = {
 };
 
 export const BootsSection = {
-	PURE_BOOTS: "PURE_BOOTS",
+	PURE_BOOTS: "Pure Boots",
 	PHASE_BOOTS: AccessoriesEnum.PHASE_BOOTS,
 	POWER_TREADS: AccessoriesEnum.POWER_TREADS,
 	TRANQUIL_BOOTS: SupportEnum.TRANQUIL_BOOTS,
