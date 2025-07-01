@@ -1,4 +1,4 @@
-export enum ConsumablesEnum {
+export enum ItemsEnum {
 	OBSERVER_WARD = "Observer Ward",
 	BLOOD_GRENADE = "Blood Grenade",
 	CLARITY = "Clarity",
@@ -11,26 +11,7 @@ export enum ConsumablesEnum {
 	HEALING_SALVE = "Healing Salve",
 	TOWN_PORTAL_SCROLL = "Town Portal Scroll",
 	BOTTLE = "Bottle",
-}
-//
-// export const CONSUMABLES = [
-// 	ConsumablesEnum.OBSERVER_WARD,
-// 	ConsumablesEnum.BLOOD_GRENADE,
-// 	ConsumablesEnum.CLARITY,
-// 	ConsumablesEnum.SENTRY_WARD,
-// 	ConsumablesEnum.SMOKE_OF_DECEIT,
-// 	ConsumablesEnum.ENCHANTED_MANGO,
-// 	ConsumablesEnum.FAERIE_FIRE,
-// 	ConsumablesEnum.DUST_OF_APPEARANCE,
-// 	ConsumablesEnum.TANGO,
-// 	ConsumablesEnum.HEALING_SALVE,
-// 	ConsumablesEnum.TOWN_PORTAL_SCROLL,
-// 	ConsumablesEnum.BOTTLE,
-// ];
-
-// Aghanim's Shard (1400) Aghanim's Shard (1400 Gold)
-
-export enum AccessoriesEnum {
+	BOOTS_OF_SPEED = "Boots Of Speed",
 	MAGIC_WAND = "Magic Wand",
 	BRACER = "Bracer",
 	NULL_TALISMAN = "Null Talisman",
@@ -48,9 +29,6 @@ export enum AccessoriesEnum {
 	HELM_OF_THE_DOMINATOR = "Helm of the Dominator",
 	MOON_SHARD = "Moon Shard",
 	HELM_OF_THE_OVERLORD = "Helm of the Overlord",
-}
-
-export enum SupportEnum {
 	BUCKLER = "Buckler",
 	HEADDRESS = "Headdress",
 	RING_OF_BASILIUS = "Ring of Basilius",
@@ -67,9 +45,6 @@ export enum SupportEnum {
 	BOOTS_OF_BEARING = "Boots of Bearing",
 	GUARDIAN_GREAVES = "Guardian Greaves",
 	PARASMA = "Parasma",
-}
-
-export enum MagicalEnum {
 	VEIL_OF_DISCORD = "Veil of Discord",
 	GLIMMER_CAPE = "Glimmer Cape",
 	FORCE_STAFF = "Force Staff",
@@ -87,9 +62,6 @@ export enum MagicalEnum {
 	GLEIPNIR = "Gleipnir",
 	AGHANIMS_BLESSING = "Aghanim's Blessing",
 	WIND_WAKER = "Wind Waker",
-}
-
-export enum ArmorEnum {
 	VANGUARD = "Vanguard",
 	BLADE_MAIL = "Blade Mail",
 	AEON_DISK = "Aeon Disk",
@@ -105,9 +77,6 @@ export enum ArmorEnum {
 	ASSAULT_CUIRASS = "Assault Cuirass",
 	SHIVAS_GUARD = "Shiva's Guard",
 	HEART_OF_TARRASQUE = "Heart of Tarrasque",
-}
-
-export enum WeaponsEnum {
 	CRYSTALYS = "Crystalys",
 	ARMLET_OF_MORDIGGIAN = "Armlet of Mordiggian",
 	METEOR_HAMMER = "Meteor Hammer",
@@ -128,9 +97,6 @@ export enum WeaponsEnum {
 	DIVINE_RAPIER = "Divine Rapier",
 	DISPERSER = "Disperser",
 	BLOODTHORN = "Bloodthorn",
-}
-
-export enum ArtifactsEnum {
 	DRAGON_LANCE = "Dragon Lance",
 	KAYA = "Kaya",
 	SANGE = "Sange",
@@ -153,21 +119,161 @@ export enum ArtifactsEnum {
 	SWIFT_BLINK = "Swift Blink",
 }
 
-export const ItemsSections = {
-	CONSUMABLES: ConsumablesEnum,
-	ACCESSORIES: AccessoriesEnum,
-	SUPPORT: SupportEnum,
-	MAGICAL: MagicalEnum,
-	ARMOR: ArmorEnum,
-	WEAPONS: WeaponsEnum,
-	ARTIFACTS: ArtifactsEnum,
-};
+export const ConsumablesSection = [
+	ItemsEnum.OBSERVER_WARD,
+	ItemsEnum.BLOOD_GRENADE,
+	ItemsEnum.CLARITY,
+	ItemsEnum.SENTRY_WARD,
+	ItemsEnum.SMOKE_OF_DECEIT,
+	ItemsEnum.ENCHANTED_MANGO,
+	ItemsEnum.FAERIE_FIRE,
+	ItemsEnum.DUST_OF_APPEARANCE,
+	ItemsEnum.TANGO,
+	ItemsEnum.HEALING_SALVE,
+	ItemsEnum.TOWN_PORTAL_SCROLL,
+	ItemsEnum.BOTTLE,
+];
 
-export const BootsSection = {
-	PURE_BOOTS: "Pure Boots",
-	PHASE_BOOTS: AccessoriesEnum.PHASE_BOOTS,
-	POWER_TREADS: AccessoriesEnum.POWER_TREADS,
-	TRANQUIL_BOOTS: SupportEnum.TRANQUIL_BOOTS,
-	ARCANE_BOOTS: SupportEnum.ARCANE_BOOTS,
-	BOOTS_OF_TRAVEL: AccessoriesEnum.BOOTS_OF_TRAVEL,
-};
+// Aghanim's Shard (1400) Aghanim's Shard (1400 Gold)
+
+export const AccessoriesSection = [
+	ItemsEnum.MAGIC_WAND,
+	ItemsEnum.BRACER,
+	ItemsEnum.NULL_TALISMAN,
+	ItemsEnum.WRAITH_BAND,
+	ItemsEnum.SOUL_RING,
+	ItemsEnum.ORB_OF_CORROSION,
+	ItemsEnum.FALCON_BLADE,
+	ItemsEnum.PERSEVERANCE,
+	ItemsEnum.POWER_TREADS,
+	ItemsEnum.PHASE_BOOTS,
+	ItemsEnum.OBLIVION_STAFF,
+	ItemsEnum.MASK_OF_MADNESS,
+	ItemsEnum.HAND_OF_MIDAS,
+	ItemsEnum.BOOTS_OF_TRAVEL,
+	ItemsEnum.HELM_OF_THE_DOMINATOR,
+	ItemsEnum.MOON_SHARD,
+	ItemsEnum.HELM_OF_THE_OVERLORD,
+];
+
+export const SupportSection = [
+	ItemsEnum.BUCKLER,
+	ItemsEnum.HEADDRESS,
+	ItemsEnum.RING_OF_BASILIUS,
+	ItemsEnum.URN_OF_SHADOWS,
+	ItemsEnum.TRANQUIL_BOOTS,
+	ItemsEnum.ARCANE_BOOTS,
+	ItemsEnum.PAVISE,
+	ItemsEnum.DRUM_OF_ENDURANCE,
+	ItemsEnum.MEKANSM,
+	ItemsEnum.VLADMIRS_OFFERING,
+	ItemsEnum.HOLY_LOCKET,
+	ItemsEnum.SPIRIT_VESSEL,
+	ItemsEnum.PIPE_OF_INSIGHT,
+	ItemsEnum.BOOTS_OF_BEARING,
+	ItemsEnum.GUARDIAN_GREAVES,
+	ItemsEnum.PARASMA,
+];
+
+export const MagicalSection = [
+	ItemsEnum.VEIL_OF_DISCORD,
+	ItemsEnum.GLIMMER_CAPE,
+	ItemsEnum.FORCE_STAFF,
+	ItemsEnum.ROD_OF_ATOS,
+	ItemsEnum.AETHER_LENS,
+	ItemsEnum.EULS_SCEPTER_OF_DIVINITY,
+	ItemsEnum.SOLAR_CREST,
+	ItemsEnum.WITCH_BLADE,
+	ItemsEnum.DAGON,
+	ItemsEnum.ORCHID_MALEVOLENCE,
+	ItemsEnum.AGHANIMS_SCEPTER,
+	ItemsEnum.OCTARINE_CORE,
+	ItemsEnum.REFRESHER_ORB,
+	ItemsEnum.SCYTHE_OF_VYSE,
+	ItemsEnum.GLEIPNIR,
+	ItemsEnum.AGHANIMS_BLESSING,
+	ItemsEnum.WIND_WAKER,
+];
+
+export const ArmorSection = [
+	ItemsEnum.VANGUARD,
+	ItemsEnum.BLADE_MAIL,
+	ItemsEnum.AEON_DISK,
+	ItemsEnum.SOUL_BOOSTER,
+	ItemsEnum.ETERNAL_SHROUD,
+	ItemsEnum.CRIMSON_GUARD,
+	ItemsEnum.LOTUS_ORB,
+	ItemsEnum.BLACK_KING_BAR,
+	ItemsEnum.BLOODSTONE,
+	ItemsEnum.HURRICANE_PIKE,
+	ItemsEnum.MANTA_STYLE,
+	ItemsEnum.LINKENS_SPHERE,
+	ItemsEnum.ASSAULT_CUIRASS,
+	ItemsEnum.SHIVAS_GUARD,
+	ItemsEnum.HEART_OF_TARRASQUE,
+];
+
+export const WeaponsSection = [
+	ItemsEnum.CRYSTALYS,
+	ItemsEnum.ARMLET_OF_MORDIGGIAN,
+	ItemsEnum.METEOR_HAMMER,
+	ItemsEnum.SKULL_BASHER,
+	ItemsEnum.SHADOW_BLADE,
+	ItemsEnum.DESOLATOR,
+	ItemsEnum.BATTLE_FURY,
+	ItemsEnum.NULLIFIER,
+	ItemsEnum.MONKEY_KING_BAR,
+	ItemsEnum.RADIANCE,
+	ItemsEnum.REVENANTS_BROOCH,
+	ItemsEnum.KHANDA,
+	ItemsEnum.DAEDALUS,
+	ItemsEnum.ETHEREAL_BLADE,
+	ItemsEnum.BUTTERFLY,
+	ItemsEnum.SILVER_EDGE,
+	ItemsEnum.ABYSSAL_BLADE,
+	ItemsEnum.DIVINE_RAPIER,
+	ItemsEnum.DISPERSER,
+	ItemsEnum.BLOODTHORN,
+];
+
+export const ArtifactsSection = [
+	ItemsEnum.DRAGON_LANCE,
+	ItemsEnum.KAYA,
+	ItemsEnum.SANGE,
+	ItemsEnum.YASHA,
+	ItemsEnum.PHYLACTERY,
+	ItemsEnum.DIFFUSAL_BLADE,
+	ItemsEnum.ECHO_SABRE,
+	ItemsEnum.MAGE_SLAYER,
+	ItemsEnum.MAELSTROM,
+	ItemsEnum.HEAVENS_HALBERD,
+	ItemsEnum.YASHA_AND_KAYA,
+	ItemsEnum.KAYA_AND_SANGE,
+	ItemsEnum.SANGE_AND_YASHA,
+	ItemsEnum.HARPOON,
+	ItemsEnum.SATANIC,
+	ItemsEnum.EYE_OF_SKADI,
+	ItemsEnum.MJOLLNIR,
+	ItemsEnum.ARCANE_BLINK,
+	ItemsEnum.OVERWHELMING_BLINK,
+	ItemsEnum.SWIFT_BLINK,
+];
+
+export const ItemsSections = [
+	ConsumablesSection,
+	AccessoriesSection,
+	SupportSection,
+	MagicalSection,
+	ArmorSection,
+	WeaponsSection,
+	ArtifactsSection,
+];
+
+export const BootsSection = [
+	ItemsEnum.BOOTS_OF_SPEED,
+	ItemsEnum.PHASE_BOOTS,
+	ItemsEnum.POWER_TREADS,
+	ItemsEnum.TRANQUIL_BOOTS,
+	ItemsEnum.ARCANE_BOOTS,
+	ItemsEnum.BOOTS_OF_TRAVEL,
+];
