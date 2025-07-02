@@ -260,7 +260,6 @@ export const ArtifactsSection = [
 ];
 
 export const ItemsSections = [
-	AccessoriesSection,
 	SupportSection,
 	MagicalSection,
 	ArmorSection,
