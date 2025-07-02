@@ -65,4 +65,7 @@ export const CAN_STUCK = new Set([
 	ItemsEnum.TANGO,
 	ItemsEnum.TOWN_PORTAL_SCROLL,
 	ItemsEnum.DAEDALUS,
+	ItemsEnum.OBSERVER_WARD,
+	ItemsEnum.SENTRY_WARD,
+	ItemsEnum.SMOKE_OF_DECEIT,
 ]);
