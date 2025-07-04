@@ -1,26 +1,24 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Card, CardContent, Stack, Typography } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import Rand from "rand-seed";
 import { HeroesEnum } from "../../stuff/heroes.ts";
 import {
+	AccessoriesSection,
 	BootsSection,
 	ConsumablesSection,
-	AccessoriesSection,
-	ItemsSections,
 	ItemsEnum,
+	ItemsSections,
 } from "../../stuff/items.ts";
 import { ItemName, Stuff } from "./schema.ts";
 import { ITEMS_ICONS } from "../../assets";
-import { CAN_STUCK } from "../../stuff/rules.ts";
+import { CAN_STUCK, EXCLUDES } from "../../stuff/rules.ts";
+import { useParams } from "react-router";
 
 export function Main() {
 	const [stuff, setStuff] = useState<Stuff>();
+	const { sid } = useParams();
 	useEffect(() => {
-		const uuid = uuidv4();
-		console.log(uuid);
-
-		const generator = new Rand(uuid);
+		const generator = new Rand(sid);
 		const randomizedItems = new Set<ItemName>();
 
 		const boots = randomChoose(generator, Object.values(BootsSection));
@@ -62,81 +60,83 @@ export function Main() {
 			accessories: accessories,
 			items: items,
 		});
-	}, []);
+	}, [sid]);
 
 	if (!stuff) {
 		return null;
 	}
 
 	return (
-		<Box>
-			<Stack>
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Герой</Typography>
-					<Typography>{stuff.hero}</Typography>
-				</Stack>
+		<Card>
+			<CardContent>
+				<Stack>
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Герой</Typography>
+						<Typography>{stuff.hero}</Typography>
+					</Stack>
 
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Расходник</Typography>
-					<Typography>{stuff.consumables[0]}</Typography>
-					<ItemCard name={stuff.consumables[0]} />
-				</Stack>
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Расходник</Typography>
+						<Typography>{stuff.consumables[0]}</Typography>
+						<ItemCard name={stuff.consumables[0]} />
+					</Stack>
 
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Расходник</Typography>
-					<Typography>{stuff.consumables[1]}</Typography>
-					<ItemCard name={stuff.consumables[1]} />
-				</Stack>
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Расходник</Typography>
+						<Typography>{stuff.consumables[1]}</Typography>
+						<ItemCard name={stuff.consumables[1]} />
+					</Stack>
 
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Ботинок</Typography>
-					<Typography>{stuff.boots}</Typography>
-					<ItemCard name={stuff.boots} />
-				</Stack>
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Ботинок</Typography>
+						<Typography>{stuff.boots}</Typography>
+						<ItemCard name={stuff.boots} />
+					</Stack>
 
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Аксессуар</Typography>
-					<Typography>{stuff.accessories[0]}</Typography>
-					<ItemCard name={stuff.accessories[0]} />
-				</Stack>
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Аксессуар</Typography>
+						<Typography>{stuff.accessories[0]}</Typography>
+						<ItemCard name={stuff.accessories[0]} />
+					</Stack>
 
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Аксессуар</Typography>
-					<Typography>{stuff.accessories[1]}</Typography>
-					<ItemCard name={stuff.accessories[1]} />
-				</Stack>
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Аксессуар</Typography>
+						<Typography>{stuff.accessories[1]}</Typography>
+						<ItemCard name={stuff.accessories[1]} />
+					</Stack>
 
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Предмет</Typography>
-					<Typography>{stuff.items[0]}</Typography>
-					<ItemCard name={stuff.items[0]} />
-				</Stack>
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Предмет</Typography>
+						<Typography>{stuff.items[0]}</Typography>
+						<ItemCard name={stuff.items[0]} />
+					</Stack>
 
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Предмет</Typography>
-					<Typography>{stuff.items[1]}</Typography>
-					<ItemCard name={stuff.items[1]} />
-				</Stack>
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Предмет</Typography>
+						<Typography>{stuff.items[1]}</Typography>
+						<ItemCard name={stuff.items[1]} />
+					</Stack>
 
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Предмет</Typography>
-					<Typography>{stuff.items[2]}</Typography>
-					<ItemCard name={stuff.items[2]} />
-				</Stack>
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Предмет</Typography>
+						<Typography>{stuff.items[2]}</Typography>
+						<ItemCard name={stuff.items[2]} />
+					</Stack>
 
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Предмет</Typography>
-					<Typography>{stuff.items[3]}</Typography>
-					<ItemCard name={stuff.items[3]} />
-				</Stack>
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Предмет</Typography>
+						<Typography>{stuff.items[3]}</Typography>
+						<ItemCard name={stuff.items[3]} />
+					</Stack>
 
-				<Stack spacing={1} direction={"row"}>
-					<Typography>Предмет</Typography>
-					<Typography>{stuff.items[4]}</Typography>
-					<ItemCard name={stuff.items[4]} />
+					<Stack spacing={1} direction={"row"}>
+						<Typography>Предмет</Typography>
+						<Typography>{stuff.items[4]}</Typography>
+						<ItemCard name={stuff.items[4]} />
+					</Stack>
 				</Stack>
-			</Stack>
-		</Box>
+			</CardContent>
+		</Card>
 	);
 }
 
@@ -158,6 +158,15 @@ function getRandomThing(
 		item = randomChoose(generator, list);
 		if (randomizedItems.has(item) && !CAN_STUCK.has(item)) {
 			item = undefined; // Skip if already picked and not allowed to be stuck
+			continue;
+		}
+
+		for (const previousItem of randomizedItems) {
+			// @ts-ignore
+			if (EXCLUDES[previousItem] && EXCLUDES[previousItem].has(item)) {
+				item = undefined;
+				break;
+			}
 		}
 	} while (!item);
 

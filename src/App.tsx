@@ -1,6 +1,6 @@
-import "./App.css";
-import { createTheme, ThemeProvider } from "@mui/material";
-import { Main } from "./pages/main/Main.tsx";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { RouterProvider } from "react-router";
+import { router } from "./core/router.tsx";
 
 const darkTheme = createTheme({
 	palette: {
@@ -11,7 +11,8 @@ const darkTheme = createTheme({
 function App() {
 	return (
 		<ThemeProvider theme={darkTheme}>
-			<Main />
+			<CssBaseline />
+			<RouterProvider router={router} />
 		</ThemeProvider>
 	);
 }
