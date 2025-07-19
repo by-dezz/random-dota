@@ -126,7 +126,10 @@ export const EXCLUDES = {
 		ItemsEnum.BUCKLER,
 		ItemsEnum.RING_OF_BASILIUS,
 	]),
-	[ItemsEnum.PIPE_OF_INSIGHT]: new Set([ItemsEnum.RING_OF_BASILIUS]),
+	[ItemsEnum.PIPE_OF_INSIGHT]: new Set([
+		ItemsEnum.RING_OF_BASILIUS,
+		ItemsEnum.HEADDRESS,
+	]),
 
 	[ItemsEnum.HURRICANE_PIKE]: new Set([
 		ItemsEnum.FORCE_STAFF,
